@@ -16,7 +16,7 @@ class Solution {
             ans.add(new ArrayList<>(sub));
             return;
         }
-        for(int i=index;i<arr.length;i++){
+        for(int i = index; i <= arr.length - (k - sub.size()); i++){
             sub.add(arr[i]);
             backtrack(arr,i+1,k,sub,ans);
             sub.remove(sub.size()-1);
