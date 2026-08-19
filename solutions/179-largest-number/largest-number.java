@@ -13,10 +13,10 @@ class Solution {
         if (arr[0] == 0) {
             return "0";
         }
-        String s = "";
+        StringBuilder s = new StringBuilder();
         for (int i : arr) {
-            s += i;
+            s.append(i);
         }
-        return s;
+        return s.toString();
     }
 }
