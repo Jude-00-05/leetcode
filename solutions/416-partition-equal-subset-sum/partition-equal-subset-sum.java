@@ -1,32 +1,18 @@
 class Solution {
     public boolean canPartition(int[] nums) {
-        int sum = Arrays.stream(nums).sum();
-
-        if (sum % 2 != 0)
-            return false;
-
-        int target = sum / 2;
-
-        HashSet<Integer> set = new HashSet<>();
-
-        int right = nums.length - 1;
-
-        while (right > -1) {
-
-            HashSet<Integer> old = new HashSet<>(set);
-
-            set.add(nums[right]);
-
-            for (int i : old) {
-                set.add(nums[right] + i);
+        int sum=Arrays.stream(nums).sum();
+        if(sum%2!=0) return false;
+        int target=sum/2;
+        boolean[] dp=new boolean[target+1];
+        dp[0]=true;
+        for(int num: nums ){
+            for(int j=target;j>=num;j--){
+                if(dp[j-num]){
+                    dp[j]=true;
+                }
             }
-
-            if (set.contains(target))
-                return true;
-
-            right--;
         }
+        return dp[target];
 
-        return false;
     }
 }
