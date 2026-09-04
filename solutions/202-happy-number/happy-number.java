@@ -2,12 +2,12 @@ class Solution {
     public boolean isHappy(int n) {
         int slow=n;
         int fast=sumSquare(n);
-        while(true){
+        while(slow!=fast){
             if(slow==1 || fast==1) return true;
-            if(slow==fast) return false;
             slow=sumSquare(slow);
             fast=sumSquare(sumSquare(fast));
         }
+        return slow==1;
     }
     public static int sumSquare(int n){
         int sum=0;
