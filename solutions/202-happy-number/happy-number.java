@@ -1,20 +1,16 @@
 class Solution {
     public boolean isHappy(int n) {
-        HashSet<Integer> set=new HashSet<>();
+        
         if(n<=0)
             return false;
-        while(n>0){
-            if(n==1)
-                return true;
-            if(set.contains(n)){
-                return false;
-            }else{
-                set.add(n);
-                n=sumSquare(n);
-            }
+        int slow=n;
+        int fast=sumSquare(n);
+        while(true){
+            if(slow==1 || fast==1) return true;
+            if(slow==fast) return false;
+            slow=sumSquare(slow);
+            fast=sumSquare(sumSquare(fast));
         }
-        return false;
-
     }
     public static int sumSquare(int n){
         int sum=0;
