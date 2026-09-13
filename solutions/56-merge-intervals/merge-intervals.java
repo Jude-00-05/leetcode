@@ -1,8 +1,8 @@
 class Solution {
     public int[][] merge(int[][] intervals) {
-        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
-        List<int[]> result = new ArrayList<>();
-        for(int[] curr:intervals){
+        Arrays.sort(intervals,(a,b)-> a[0]-b[0]);
+        ArrayList<int[]> result= new ArrayList<>();
+        for(int[] curr: intervals){
             if(result.isEmpty()){
                 result.add(curr);
                 continue;
