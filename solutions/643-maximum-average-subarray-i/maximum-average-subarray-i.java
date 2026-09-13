@@ -7,7 +7,6 @@ class Solution {
         double avg=0;        
         while(right<nums.length && left<=right)
         {
-            
             sum+=nums[right];
             right++;
             if(right-left>k){
