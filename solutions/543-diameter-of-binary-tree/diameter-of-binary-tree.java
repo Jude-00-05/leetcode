@@ -13,7 +13,7 @@
  *     }
  * }
  */
- import java.util.*;
+
 class Solution {
     int max=0;
     public int diameterOfBinaryTree(TreeNode root) {
