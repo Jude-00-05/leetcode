@@ -1,20 +1,19 @@
 class Solution {
     public List<List<Integer>> subsets(int[] nums) {
-        List<List<Integer>> list=new ArrayList<>();
-        int n=nums.length;
-        List<Integer> sub=new ArrayList<>();
-        int index=0;
-        func(nums,list,sub,index);
-        return list;
+        List<List<Integer>> result=new ArrayList<>();
+        backtrack(0,nums,new ArrayList<Integer>(),result);
+        return result;
     }
-    static void func(int[] nums,List<List<Integer>> list,List<Integer> sub,int index){
-        if(index==nums.length){
-            list.add(new ArrayList<>(sub));;
+    public void backtrack(int index,int[]nums,List<Integer> current,List<List<Integer>> result)
+    {
+        if(index==nums.length)
+        {
+            result.add(new ArrayList<>(current));
             return;
         }
-        sub.add(nums[index]);
-        func(nums,list,sub,index+1);
-        sub.remove(sub.size()-1);
-        func(nums,list,sub,index+1);
+        current.add(nums[index]);
+        backtrack(index+1,nums,current,result);
+        current.remove(current.size()-1);
+        backtrack(index+1,nums,current,result);
     }
 }
