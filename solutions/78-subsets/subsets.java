@@ -6,7 +6,6 @@ class Solution {
         int index=0;
         func(nums,list,sub,index);
         return list;
-
     }
     static void func(int[] nums,List<List<Integer>> list,List<Integer> sub,int index){
         if(index==nums.length){
