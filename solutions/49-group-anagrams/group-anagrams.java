@@ -5,10 +5,8 @@ class Solution {
         {
             char[] charArray=s.toCharArray();
             Arrays.sort(charArray);
-            String sortedString=new String(charArray);
-            List<String> group=map.getOrDefault(sortedString,new ArrayList<>());
-            group.add(s);
-            map.put(sortedString,group);
+            String sorted=new String(charArray);
+            map.computeIfAbsent(sorted,k-> new ArrayList<>()).add(s);
 
         }
         return new ArrayList<>(map.values());
